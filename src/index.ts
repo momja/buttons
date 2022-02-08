@@ -92,7 +92,7 @@ export default class ButtonsPlugin extends Plugin {
       callback: () => new InlineButtonModal(this.app).open(),
     });
 
-    this.registerMarkdownCodeBlockProcessor("button", async (source, el) => {
+    this.registerMarkdownCodeBlockProcessor("a", async (source, el) => {
       // create an object out of the arguments
       const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
       if (activeView) {

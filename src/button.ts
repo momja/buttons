@@ -34,14 +34,14 @@ export const createButton = ({
   clickOverride,
 }: Button): HTMLElement => {
   //create the button element
-  const button = el.createEl("button", {
+  const button = el.createEl(args.eltype ? args.eltype : "button", {
     cls: args.class
       ? `${args.class} ${args.color}`
       : `button-default ${args.color ? args.color : ""}`,
   });
   button.innerHTML = args.name;
   args.id ? button.setAttribute("id", args.id) : "";
-  button.on("click", "button", () => {
+  button.on("click", args.eltype ? args.eltype : "button", () => {
     clickOverride
       ? clickOverride.click(...clickOverride.params)
       : clickHandler(app, args, inline, id);

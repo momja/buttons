@@ -72,6 +72,7 @@ export class ButtonModal extends Modal {
     replace: "",
     id: "",
     templater: false,
+    eltype: "",
     class: "",
     color: "",
     blockId: "",
@@ -398,6 +399,17 @@ export class ButtonModal extends Modal {
             }
           });
         });
+      new Setting(formEl)
+        .setName("Element")
+        .setDesc("What HTML element do you want to represent your button (default is <button></button>")
+        .addDropdown((drop) => {
+          drop.addOption("button", "Button (default)");
+          drop.addOption("a", "link");
+          drop.addOption("h1", "header");
+          drop.onChange((value) => {
+            this.outputObject.eltype = value;
+          });
+        })
       new Setting(formEl)
         .setName("Color")
         .setDesc("What color would you like your button to be?")

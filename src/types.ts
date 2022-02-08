@@ -49,6 +49,7 @@ export interface Arguments {
   id?: string;
   remove?: string;
   replace?: string;
+  eltype?: string;
   [key: string]: string;
 }
 
